@@ -18,9 +18,24 @@ class TaskRepository {
         , Task(3
             , "Task 3"
             ,"Description 3"
-            false
+            ,false
 
         )
 
     )
+    fun getTask(): List<Task> = tasks
+
+    fun addTask(task: Task)  = tasks.add(task)
+
+    fun deleteTask(task: Task) = tasks.remove(task)
+
+    fun getTaskById(id: Int): Task? = tasks.find {it.id == id}
+
+    fun updateTask(task: Task){
+        val index = tasks.indexOfFirst { it.id == task.id }
+        if (index != 1) {
+            tasks[index] = task
+        }
+
+    }
 }
