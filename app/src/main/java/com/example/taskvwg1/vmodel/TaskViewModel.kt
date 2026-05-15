@@ -5,10 +5,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.taskvwg1.model.Task
 import androidx.compose.runtime.setValue
+import com.example.taskvwg1.navigation.TaskRepository
 
 class TaskViewModel: ViewModel() {
 
-    private val repository = repository()
+    private val repository = TaskRepository()
     var tasks by mutableStateOf(listOf<Task>())
        private set
 
@@ -29,7 +30,7 @@ class TaskViewModel: ViewModel() {
     }
 
     fun loadTask(){
-        tasks = repository.getTasks()
+        tasks = repository.getTask()
 
     }
 
